@@ -15,10 +15,3 @@ INNER JOIN Clientes ON Facturas.ClienteID = Clientes.ClienteID
 INNER JOIN FacturaDetalle ON Facturas.FacturaID = FacturaDetalle.FacturaID
 INNER JOIN Productos ON FacturaDetalle.ProductoID = Productos.ProductoID
 INNER JOIN Categorias ON Categorias.CategoriaID = Productos.CategoriaID;
-
-SELECT f.FacturaID, f.FechaFactura, c.Compania, cl.Contacto, ca.CategoriaNombre AS Nombre, p.ProductoNombre AS Producto, fd.PrecioUnitario, fd.Cantidad FROM facturas f
-INNER JOIN correos c ON f.EnvioVia = c.CorreoID
-INNER JOIN clientes cl ON f.ClienteID = cl.ClienteID
-INNER JOIN facturadetalle fd ON f.FacturaID = fd.FacturaID
-INNER JOIN productos p ON fd.ProductoID = p.ProductoID
-INNER JOIN categorias ca ON p.CategoriaID = ca.CategoriaID;
